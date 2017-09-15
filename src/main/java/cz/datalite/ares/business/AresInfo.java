@@ -7,25 +7,15 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class AresInfo {
 
 
-	/** DIC */
 	private String fiscNo;
-	/** Firma, OF */
 	private String name;
-	/** Ulice, NU) */
 	private String street;
-	/** Nazev casti obce, NCO */
 	private String townPart;
-	/** Cislo domovni CD */
 	private String streetNo;
-	/** Cislo orientacni CO */
 	private String houseNo;
-	/** Nazev obce, N */
 	private String town;
-	/** Nazev mestske casti, NMC */
 	private String cityPart;
-	/** PSC, PSC */
 	private String postCd;
-	/** Nazev PF, NPF */
 	private String legalForm;
 
 	public static AresInfo createFromResponse(VypisBasic vypis){
@@ -43,6 +33,7 @@ public class AresInfo {
 		return info;
 	}
 
+	/** DIC */
 	public String getFiscNo() {
 		return fiscNo;
 	}
@@ -51,6 +42,7 @@ public class AresInfo {
 		this.fiscNo = fiscNo;
 	}
 
+	/** Firma, OF */
 	public String getName() {
 		return name;
 	}
@@ -59,6 +51,7 @@ public class AresInfo {
 		this.name = name;
 	}
 
+	/** Ulice, NU */
 	public String getStreet() {
 		return street;
 	}
@@ -67,6 +60,7 @@ public class AresInfo {
 		this.street = street;
 	}
 
+	/** Nazev casti obce, NCO */
 	public String getTownPart() {
 		return townPart;
 	}
@@ -75,6 +69,7 @@ public class AresInfo {
 		this.townPart = townPart;
 	}
 
+	/** Cislo domovni CD */
 	public String getStreetNo() {
 		return streetNo;
 	}
@@ -83,6 +78,7 @@ public class AresInfo {
 		this.streetNo = streetNo;
 	}
 
+	/** Cislo orientacni CO */
 	public String getHouseNo() {
 		return houseNo;
 	}
@@ -91,6 +87,7 @@ public class AresInfo {
 		this.houseNo = houseNo;
 	}
 
+	/** Nazev obce, N */
 	public String getTown() {
 		return town;
 	}
@@ -99,6 +96,7 @@ public class AresInfo {
 		this.town = town;
 	}
 
+	/** Nazev mestske casti, NMC */
 	public String getCityPart() {
 		return cityPart;
 	}
@@ -107,6 +105,7 @@ public class AresInfo {
 		this.cityPart = cityPart;
 	}
 
+	/** PSC, PSC */
 	public String getPostCd() {
 		return postCd;
 	}
@@ -115,6 +114,7 @@ public class AresInfo {
 		this.postCd = postCd;
 	}
 
+	/** Nazev PF, NPF */
 	public String getLegalForm() {
 		return legalForm;
 	}

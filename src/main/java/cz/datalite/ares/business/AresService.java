@@ -5,6 +5,6 @@ package cz.datalite.ares.business;
  */
 public interface AresService {
 
-	AresInfo getAresInfo(String regNo, String requestAddress);
+	AresInfo getAresInfo(String regNo, String requestAddress) throws AresException;
 
 }

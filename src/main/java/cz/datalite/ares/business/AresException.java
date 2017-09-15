@@ -3,7 +3,7 @@ package cz.datalite.ares.business;
 /**
  * Ares exception
  */
-public class AresException extends RuntimeException {
+public class AresException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 

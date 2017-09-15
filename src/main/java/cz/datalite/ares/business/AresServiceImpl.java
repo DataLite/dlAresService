@@ -2,6 +2,7 @@ package cz.datalite.ares.business;
 
 
 import cz.datalite.ares.ws.ares.basic.AresOdpovedi;
+import cz.datalite.ares.ws.ares.basic.OdpovedBasic;
 import cz.datalite.ares.ws.ares.basic.VypisBasic;
 import cz.datalite.helpers.StringHelper;
 import cz.datalite.stereotype.Service;
@@ -26,7 +27,7 @@ public class AresServiceImpl implements AresService {
 
 
 	@Override
-	public AresInfo getAresInfo(String regNo, String requestAddress) {
+	public AresInfo getAresInfo(String regNo, String requestAddress) throws AresException {
 
 		if(StringHelper.isNull(requestAddress)){
 			throw new AresException("Request address is not specified.");
@@ -60,7 +61,16 @@ public class AresServiceImpl implements AresService {
 				throw new AresException(String.format("Unexpected number of answers - %d", odpovedi.getOdpovedPocet()));
 			}
 
-			VypisBasic vypis = odpovedi.getOdpoved().get(0).getVBAS().get(0);
+			OdpovedBasic odpovedBasic = odpovedi.getOdpoved().get(0);
+			if(odpovedBasic.getE() != null){
+				throw new AresException(odpovedBasic.getE().getET());
+			}
+
+			if(odpovedBasic.getVBAS().size() < 1){
+				throw new AresException(String.format("Unexpected number of answers - %d", odpovedBasic.getVBAS().size()));
+			}
+
+			VypisBasic vypis = odpovedBasic.getVBAS().get(0);
 
 			return AresInfo.createFromResponse(vypis);
 
