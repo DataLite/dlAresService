@@ -54,7 +54,7 @@ public class AresServiceImpl implements AresService {
 			EntityUtils.consume(response.getEntity());
 
 			if(odpovedi.getFault() != null){
-				throw new AresException(String.format("Ares returned fault, %s - %s", odpovedi.getFault().getFaultcode(), odpovedi.getFault().getFaultstring()));
+				throw new AresException(String.format("Ares returned fault, %s - %s", odpovedi.getFault().getFaultcode(), odpovedi.getFault().getFaultstring()), odpovedi.getFault().getFaultstring());
 			}
 
 			if(odpovedi.getOdpovedPocet() != 1){
@@ -63,7 +63,7 @@ public class AresServiceImpl implements AresService {
 
 			OdpovedBasic odpovedBasic = odpovedi.getOdpoved().get(0);
 			if(odpovedBasic.getE() != null){
-				throw new AresException(odpovedBasic.getE().getET());
+				throw new AresException("Ares returned fault", odpovedBasic.getE().getET());
 			}
 
 			if(odpovedBasic.getVBAS().size() < 1){

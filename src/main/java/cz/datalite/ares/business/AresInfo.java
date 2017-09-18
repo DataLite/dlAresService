@@ -20,16 +20,20 @@ public class AresInfo {
 
 	public static AresInfo createFromResponse(VypisBasic vypis){
 		AresInfo info = new AresInfo();
-		info.setFiscNo(vypis.getDIC().getValue());
-		info.setName(vypis.getOF().getValue());
-		info.setStreet(vypis.getAA().getNU());
-		info.setTownPart(vypis.getAA().getNCO());
-		info.setStreetNo(vypis.getAA().getCD().toString());
-		info.setHouseNo(vypis.getAA().getCO());
-		info.setTown(vypis.getAA().getN());
-		info.setCityPart(vypis.getAA().getNMC());
-		info.setPostCd(vypis.getAA().getPSC());
-		info.setLegalForm(vypis.getPF().getNPF());
+		info.setFiscNo(vypis.getDIC() != null ? vypis.getDIC().getValue() : null);
+		info.setName(vypis.getOF() != null ? vypis.getOF().getValue() : null);
+
+		if(vypis.getAA() != null ){
+			info.setStreet(vypis.getAA().getNU());
+			info.setTownPart(vypis.getAA().getNCO());
+			info.setStreetNo(vypis.getAA().getCD().toString());
+			info.setHouseNo(vypis.getAA().getCO());
+			info.setTown(vypis.getAA().getN());
+			info.setCityPart(vypis.getAA().getNMC());
+			info.setPostCd(vypis.getAA().getPSC());
+		}
+
+		info.setLegalForm(vypis.getPF() != null ? vypis.getPF().getNPF() : null);
 		return info;
 	}
 
